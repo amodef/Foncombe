@@ -9,7 +9,8 @@ class PositionsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$positions = Position::all();
+		return View::make('positions.index', compact('positions'));
 	}
 
 	/**
@@ -29,11 +30,11 @@ class PositionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$pos = new Position();
+		$position = new Position();
 
-		$pos->fill(Input::all());
+		$position->fill(Input::all());
 
-		if ($pos->save())
+		if ($position->save())
 		{
 			return Redirect::route('home');
 		}

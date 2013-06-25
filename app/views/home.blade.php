@@ -6,7 +6,7 @@
 
 <h2>Gestion des coordonnées ennemies</h2>
 
-<p>Consulter la liste des coordonnées</p>
+<p><a href="{{ route('positions.index') }}">Consulter la liste des coordonnées</a></p>
 <p><a href="{{ route('positions.create') }}">Ajouter une coordonnée</a></p>
 
 @stop
