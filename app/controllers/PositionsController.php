@@ -32,13 +32,16 @@ class PositionsController extends \BaseController {
 	{
 		$position = new Position();
 
-		$position->fill(Input::all());
-
-		if ($position->save())
+		if ($position->validate())
 		{
-			return Redirect::route('home');
+			$position->fill(Input::all());
+
+			if ($position->save())
+			{
+				return Redirect::route('home');
+			}
 		}
-		return Redirect::back()->withInput();
+		return Redirect::back()->withInput()->withErrors($position->errors);;
 
 		/*if ($user->validate())
 		{
@@ -95,7 +98,12 @@ class PositionsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$position = Position::find($id);
+		if ($position->delete())
+		{
+			return Redirect::route('positions.index');
+		}
+		return Redirect::back()->withErrors($position->errors);
 	}
 
 }

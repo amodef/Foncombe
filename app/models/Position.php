@@ -1,6 +1,6 @@
 <?php
 
-class Position extends Eloquent {
+class Position extends BaseModel {
 
 	/**
 	 * The database table used by the model.
@@ -8,6 +8,14 @@ class Position extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'positions';
+
+	protected static $rules = [
+		'name' => 'required',
+		'ally' => 'required',
+		'xaxis' => 'required|numeric',
+		'yaxis' => 'required|numeric',
+		'power' => 'required|numeric'
+	];
 
 	protected $fillable = array('name', 'ally', 'xaxis', 'yaxis', 'power');
 

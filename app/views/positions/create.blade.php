@@ -6,25 +6,43 @@
 
 <h2>Signaler de nouvelles coordonées</h2>
 
-{{ Form::open(array('route' => 'positions.store')) }}
+{{ Form::open(['route' => 'positions.store', 'class' => 'form-horizontal']) }}
 
-  {{ Form::label('name', 'Nom du joueur :') }}
-  {{ Form::text('name') }}<br>
+  <div class="control-group">
+    {{ Form::label('name', 'Nom du joueur :', ['class' => 'control-label']) }}
+    <div class="controls">
+      {{ Form::text('name') }}
+    </div>
+  </div>
 
-  {{ Form::label('ally', 'Nom de l\'alliance :') }}
-  {{ Form::text('ally') }}<br>
+  <div class="control-group">
+    {{ Form::label('ally', 'Nom de l\'alliance :', ['class' => 'control-label']) }}
+    <div class="controls">
+      {{ Form::text('ally') }}
+    </div>
+  </div>
 
-  {{ Form::label('xaxis', 'x : ') }}
-  {{ Form::text('xaxis') }}<br>
+  <div class="control-group">
+    {{ Form::label('xaxis', 'Coordonnées (x, y) : ', ['class' => 'control-label']) }}
+    <div class="controls">
+      {{ Form::text('xaxis', '', ['class' => 'input-mini']) }}
+      {{ Form::text('yaxis', '', ['class' => 'input-mini']) }}
+    </div>
+  </div>
 
-  {{ Form::label('yaxis', 'y : ') }}
-  {{ Form::text('yaxis') }}<br>
+  <div class="control-group">
+    {{ Form::label('power', 'Puissance :', ['class' => 'control-label']) }}
+    <div class="controls">
+      {{ Form::text('power') }}
+    </div>
+  </div>
 
-  {{ Form::label('power', 'Puissance :') }}
-  {{ Form::text('power') }}<br>
-
-  {{ Form::submit('Ajouter', array('class' => 'btn btn-primary')) }}
-  <a href="{{ route('home') }}" class="btn">Annuler</a>
+  <div class="control-group">
+    <div class="controls">
+   {{ Form::submit('Ajouter', array('class' => 'btn btn-primary')) }}
+    <a href="{{ route('home') }}" class="btn">Annuler</a>
+    </div>
+  </div>
 
 {{ Form::close() }}
 

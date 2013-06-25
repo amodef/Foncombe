@@ -4,16 +4,16 @@
 
 @include('_partials.errors')
 
-<h1>Liste des positions connues</h1>
+<h3>Liste des positions connues</h3>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Joueur</th>
       <th>Alliance</th>
-      <th>x</th>
-      <th>y</th>
+      <th>Coordonnées</th>
       <th>Puissance</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -21,9 +21,14 @@
     <tr>
       <td>{{ $position->name }}</td>
       <td>{{ $position->ally }}</td>
-      <td>{{ $position->xaxis }}</td>
-      <td>{{ $position->yaxis }}</td>
+      <td>({{ $position->xaxis }}, {{ $position->yaxis }})</td>
       <td>{{ $position->power }}</td>
+      <td>
+        {{ Form::open(['route' => ['positions.destroy', $position->id], 'method' => 'delete', 'class' => 'form-inline', 'style' => 'margin-bottom:0;']) }}
+          <a href="{{ route('positions.edit', $position->id) }}"><i class="icon-pencil"></i></a>
+          <button type="submit" href="{{ route('positions.destroy', $position->id) }}" class="btn-mini btn-link"><i class="icon-trash"></i></button>
+        {{ Form::close() }}
+      </td>
     </tr>
     @endforeach
   </tbody>
