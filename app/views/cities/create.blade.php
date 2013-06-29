@@ -6,19 +6,12 @@
 
 <h2>Signaler de nouvelles coordonées</h2>
 
-{{ Form::open(['route' => 'positions.store', 'class' => 'form-horizontal']) }}
+{{ Form::open(['route' => 'city.store', 'class' => 'form-horizontal']) }}
 
   <div class="control-group">
-    {{ Form::label('name', 'Nom du joueur :', ['class' => 'control-label']) }}
+    {{ Form::label('name', 'Nom de la ville :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::text('name') }}
-    </div>
-  </div>
-
-  <div class="control-group">
-    {{ Form::label('ally', 'Nom de l\'alliance :', ['class' => 'control-label']) }}
-    <div class="controls">
-      {{ Form::text('ally') }}
     </div>
   </div>
 
@@ -30,12 +23,13 @@
     </div>
   </div>
 
-  <div class="control-group">
-    {{ Form::label('power', 'Puissance :', ['class' => 'control-label']) }}
+   <div class="control-group">
+    {{ Form::label('player_id', 'Appartient à :', ['class' => 'control-label']) }}
     <div class="controls">
-      {{ Form::text('power') }}
+      {{ Form::select('player_id', $playerList) }}
+      <a href="{{ route('player.create') }}" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i></a>
     </div>
-  </div>
+  </div> 
 
   <div class="control-group">
     <div class="controls">

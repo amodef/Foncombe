@@ -16,4 +16,8 @@ Route::get('/', array('as' => 'home', function()
   return View::make('home');
 }));
 
-Route::resource('positions', 'PositionsController');
+Route::resource('city', 'CityController');
+
+Route::resource('ally', 'AllyController', ['only' => ['show', 'create', 'store']]);
+
+Route::resource('player', 'PlayerController', ['only' => ['show', 'create', 'store']]);

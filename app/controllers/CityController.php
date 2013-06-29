@@ -1,6 +1,6 @@
 <?php
 
-class PositionsController extends \BaseController {
+class CityController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,8 @@ class PositionsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$positions = Position::all();
-		return View::make('positions.index', compact('positions'));
+		$cities = City::paginate(4);
+		return View::make('cities.index', compact('cities'));
 	}
 
 	/**
@@ -20,7 +20,8 @@ class PositionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('positions.create');
+		$playerList = City::setPlayerList();
+		return View::make('cities.create', compact('playerList'));
 	}
 
 	/**
@@ -30,18 +31,18 @@ class PositionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$position = new Position();
+		$city = new City();
 
-		if ($position->validate())
+		if ($city->validate())
 		{
-			$position->fill(Input::all());
+			$city->fill(Input::all());
 
-			if ($position->save())
+			if ($city->save())
 			{
-				return Redirect::route('home');
+				return Redirect::route('city.index');
 			}
 		}
-		return Redirect::back()->withInput()->withErrors($position->errors);;
+		return Redirect::back()->withInput()->withErrors($city->errors);;
 
 		/*if ($user->validate())
 		{
@@ -98,12 +99,12 @@ class PositionsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$position = Position::find($id);
-		if ($position->delete())
+		$city = City::find($id);
+		if ($city->delete())
 		{
-			return Redirect::route('positions.index');
+			return Redirect::route('city.index');
 		}
-		return Redirect::back()->withErrors($position->errors);
+		return Redirect::back()->withErrors($city->errors);
 	}
 
 }
