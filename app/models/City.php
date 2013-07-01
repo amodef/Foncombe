@@ -15,7 +15,6 @@ class City extends BaseModel {
   }
 
 	protected static $rules = [
-		'name' => 'required|unique:cities',
 		'xaxis' => 'required|numeric|between:1,800',
 		'yaxis' => 'required|numeric|between:1,800',
     'player_id' => 'required'
@@ -43,14 +42,8 @@ class City extends BaseModel {
 
   public function validate($input = null)
   {
-    if (Input::get('_method') == 'PUT')
+    if (Input::get('_method') != 'PUT')
     {
-      // Ignore values on record with same id, and allow empty password
-      self::$rules['name'] .= ",name,$this->id";
-
-      return parent::validate();
-      
-    } else {
 
       $xcities = City::where('xaxis', '=', Input::get('xaxis'))->get();
       foreach ($xcities as $city)

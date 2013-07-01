@@ -11,4 +11,6 @@
   <li><a href="{{ route('city.create') }}">Ajouter une coordonnée</a></li>
 </ul>
 
+<p>Pour signaler un bug ou faire part d'une suggestion, veuillez vous rendre à <a href="https://github.com/amodef/Foncombe/issues/new">cette adresse</a>.</p>
+
 @stop

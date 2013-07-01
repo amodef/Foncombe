@@ -9,26 +9,32 @@
 {{ Form::open(['route' => 'player.store', 'class' => 'form-horizontal']) }}
 
   <div class="control-group">
-    {{ Form::label('name', 'Nom du joueur :', ['class' => 'control-label']) }}
+    {{ Form::label('name', 'Nom du joueur* :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::text('name') }}
     </div>
   </div>
 
   <div class="control-group">
-    {{ Form::label('power', 'Puissance : ', ['class' => 'control-label']) }}
+    {{ Form::label('power', 'Puissance* : ', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::text('power') }}
     </div>
   </div>
 
    <div class="control-group">
-    {{ Form::label('ally_id', 'Alliance :', ['class' => 'control-label']) }}
+    {{ Form::label('ally_id', 'Alliance* :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::select('ally_id', $allyList) }}
       <a href="{{ route('ally.create') }}" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i></a>
     </div>
-  </div> 
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <span class="help-block">*champ obligatoire</span>
+    </div>
+  </div>
 
   <div class="control-group">
     <div class="controls">

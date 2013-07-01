@@ -9,9 +9,8 @@
 <table id="citiesIndex" class="table table-hover">
   <thead>
     <tr>
-      <th>Nom <a href="#"><i class="icon-chevron-down"></i></a></th>
-      <th>Coordonnées <a href="#"><i class="icon-chevron-down"></i></a></th>
       <th>Joueur <a href="#"><i class="icon-chevron-down"></i></a></th>
+      <th>Coordonnées <a href="#"><i class="icon-chevron-down"></i></a></th>
       <th>Alliance <a href="#"><i class="icon-chevron-down"></i></a></th>
       <th>Actions</th>
     </tr>
@@ -19,9 +18,8 @@
   <tbody>
     @foreach($cities as $city)
     <tr>
-      <td>{{ $city->name }}</td>
-      <td>({{ $city->xaxis }}, {{ $city->yaxis }})</td>
       <td><a href="{{ route('player.show', $city->player->id) }}">{{ $city->player->name }}</a></td>
+      <td>({{ $city->xaxis }}, {{ $city->yaxis }})</td>
       <td><a href="{{ route('ally.show', $city->player->ally->id) }}">{{ $city->player->ally->name }}</a></td>
       <td>
         {{ Form::open(['route' => ['city.destroy', $city->id], 'method' => 'delete', 'class' => 'form-inline', 'style' => 'margin-bottom:0;']) }}

@@ -16,7 +16,7 @@
   </div>
 
   <div class="control-group">
-    {{ Form::label('xaxis', 'Coordonnées (x, y) : ', ['class' => 'control-label']) }}
+    {{ Form::label('xaxis', 'Coordonnées (x, y)* : ', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::text('xaxis', '', ['class' => 'input-mini']) }}
       {{ Form::text('yaxis', '', ['class' => 'input-mini']) }}
@@ -24,12 +24,18 @@
   </div>
 
    <div class="control-group">
-    {{ Form::label('player_id', 'Appartient à :', ['class' => 'control-label']) }}
+    {{ Form::label('player_id', 'Appartient à* :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::select('player_id', $playerList) }}
       <a href="{{ route('player.create') }}" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i></a>
     </div>
   </div> 
+
+  <div class="control-group">
+    <div class="controls">
+      <span class="help-block">*champ obligatoire</span>
+    </div>
+  </div>
 
   <div class="control-group">
     <div class="controls">
