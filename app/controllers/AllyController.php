@@ -38,7 +38,7 @@ class AllyController extends \BaseController {
 
 			if ($ally->save())
 			{
-				return Redirect::route('player.create');
+				return Redirect::back();
 			}
 		}
 		return Redirect::back()->withInput()->withErrors($ally->errors);;

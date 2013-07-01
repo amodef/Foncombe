@@ -6,13 +6,13 @@
 
 <h3>Liste des cités connues</h3>
 
-<table id="citiesIndex" class="table table-hover tablesorter">
+<table id="citiesIndex" class="table table-hover">
   <thead>
     <tr>
-      <th>Nom</th>
-      <th>Coordonnées</th>
-      <th>Joueur</th>
-      <th>Alliance</th>
+      <th>Nom <a href="#"><i class="icon-chevron-down"></i></a></th>
+      <th>Coordonnées <a href="#"><i class="icon-chevron-down"></i></a></th>
+      <th>Joueur <a href="#"><i class="icon-chevron-down"></i></a></th>
+      <th>Alliance <a href="#"><i class="icon-chevron-down"></i></a></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -34,7 +34,7 @@
   </tbody>
 </table>
 
-{{ $cities->links() }}
+{{-- $cities->links() --}}
 
 <p><a href="{{ route('home') }}" class="btn">Retour</a></p>
 @stop

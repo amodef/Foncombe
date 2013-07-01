@@ -3,11 +3,12 @@
 class Player extends BaseModel {
 
   protected static $rules = [
-    'name' => 'required',
-    'power' => 'required|numeric'
+    'name' => 'required|unique',
+    'power' => 'required|numeric',
+    'ally_id' => 'required'
   ];
 
-  protected $fillable = array('name', 'power', 'ally_id');
+  protected $fillable = ['name', 'power', 'ally_id'];
 
   public function ally()
   {

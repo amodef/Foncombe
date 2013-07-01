@@ -9,7 +9,7 @@ class CityController extends \BaseController {
 	 */
 	public function index()
 	{
-		$cities = City::paginate(4);
+		$cities = City::all(); //paginate(10);
 		return View::make('cities.index', compact('cities'));
 	}
 

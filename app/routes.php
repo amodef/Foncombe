@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', array('as' => 'home', function()
+Route::get('/', ['as' => 'home', function()
 {
   return View::make('home');
-}));
+}]);
 
 Route::resource('city', 'CityController');
 

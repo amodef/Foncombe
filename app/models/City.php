@@ -11,16 +11,17 @@ class City extends BaseModel {
 
 	public function player()
   {
-    return $this->belongsTo('Player');
+    return $this->belongsTo('Player')->orderBy('players.name');
   }
 
 	protected static $rules = [
 		'name' => 'required',
 		'xaxis' => 'required|numeric',
-		'yaxis' => 'required|numeric'
+		'yaxis' => 'required|numeric',
+    'player_id' => 'required'
 	];
 
-	protected $fillable = array('name', 'xaxis', 'yaxis', 'player_id');
+	protected $fillable = ['name', 'xaxis', 'yaxis', 'player_id'];
 
 	public static function setPlayerList()
 	{

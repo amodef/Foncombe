@@ -5,10 +5,10 @@ class Ally extends BaseModel {
   public $power;
 
   protected static $rules = [
-    'name' => 'required'
+    'name' => 'required|unique'
   ];
 
-  protected $fillable = array('name');
+  protected $fillable = ['name'];
 
   public function setPower()
   {
