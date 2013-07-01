@@ -3,7 +3,7 @@
 class Player extends BaseModel {
 
   protected static $rules = [
-    'name' => 'required|unique',
+    'name' => 'required',
     'power' => 'required|numeric',
     'ally_id' => 'required'
   ];

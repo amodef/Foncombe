@@ -43,19 +43,6 @@ class CityController extends \BaseController {
 			}
 		}
 		return Redirect::back()->withInput()->withErrors($city->errors);;
-
-		/*if ($user->validate())
-		{
-			$user->fill(Input::except('password', 'password_confirmation'));
-			$user->password  	= Hash::make(Input::get('password'));
-
-			if ($user->save())
-			{
-				return Redirect::route('users.index');
-			}
-		}
-		return Redirect::back()->withInput(Input::except('password', 'password_confirmation'))->withErrors($user->errors);
-	*/
 	}
 
 	/**
@@ -77,7 +64,11 @@ class CityController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$city = City::find($id);
+		$playerList = City::setPlayerList();
+		if (!$city) return Redirect::route('city.index');
+
+		return View::make('cities.edit', compact('city'), compact('playerList'));
 	}
 
 	/**
@@ -88,7 +79,18 @@ class CityController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$city = City::find($id);
+		if (!$city) return Redirect::route('city.index');
+
+		if ($city->validate())
+		{
+			$city->fill(Input::all());
+			if ($city->save())
+			{
+				return Redirect::route('city.index');
+			}
+		}
+		return Redirect::back()->withErrors($city->errors);
 	}
 
 	/**

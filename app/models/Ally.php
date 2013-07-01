@@ -5,7 +5,7 @@ class Ally extends BaseModel {
   public $power;
 
   protected static $rules = [
-    'name' => 'required|unique'
+    'name' => 'required|unique:allies'
   ];
 
   protected $fillable = ['name'];
