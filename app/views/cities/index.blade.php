@@ -2,7 +2,7 @@
 
 @section('sidebar')
 <ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Liste des cités</a></li>
+  <li class="active"><a href="">Liste des cités</a></li>
   <li><a href="{{ route('player.index') }}">Liste des joueurs</a></li>
   <li><a href="{{ route('ally.index') }}">Liste des alliances</a></li>
 </ul>
@@ -15,9 +15,9 @@
 <table id="citiesIndex" class="table table-hover">
   <thead>
     <tr>
-      <th>Joueur <a href="#"><i class="icon-chevron-down"></i></a></th>
-      <th>Coordonnées <a href="#"><i class="icon-chevron-down"></i></a></th>
-      <th>Alliance <a href="#"><i class="icon-chevron-down"></i></a></th>
+      <th>Joueur <a href=""><i class="icon-chevron-down"></i></a></th>
+      <th>Coordonnées <a href=""><i class="icon-chevron-down"></i></a></th>
+      <th>Alliance <a href=""><i class="icon-chevron-down"></i></a></th>
       <th>Actions</th>
     </tr>
   </thead>

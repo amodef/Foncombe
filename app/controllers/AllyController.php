@@ -3,6 +3,17 @@
 class AllyController extends \BaseController {
 
 	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$allies = Ally::all(); //paginate(10);
+		return View::make('allies.index', compact('allies'));
+	}
+
+	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id

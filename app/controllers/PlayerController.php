@@ -3,6 +3,17 @@
 class PlayerController extends \BaseController {
 
 	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$players = Player::all(); //paginate(10);
+		return View::make('players.index', compact('players'));
+	}
+
+	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
