@@ -27,12 +27,26 @@
       <td><a href="{{ route('ally.show', $ally->id) }}">{{{ $ally->name }}}</a></td>
       <td>{{ $ally->power }}</td>
       <td>
-        {{ Form::open(['route' => ['ally.destroy', $ally->id], 'method' => 'delete', 'class' => 'form-inline', 'style' => 'margin-bottom:0;']) }}
-          <a href="{{ route('ally.edit', $ally->id) }}"><i class="icon-pencil"></i></a>
-          <button type="submit" href="{{ route('ally.destroy', $ally->id) }}" class="btn-mini btn-link"><i class="icon-trash"></i></button>
-        {{ Form::close() }}
+        <a href="{{ route('ally.edit', $ally->id) }}"><i class="icon-pencil"></i></a>
+        <a data-toggle="modal" href="#del{{ $ally->id }}"><i class="icon-trash"></i></a>
       </td>
     </tr>
+    <div id="del{{ $ally->id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Prudence !</h3>
+      </div>
+      <div class="modal-body">
+        <p>L'alliance <strong>{{ $ally->name }} ainsi que tous ses membres et leurs cités</strong> seront oubliés à tout jamais.<br>
+        Êtes-vous certain de vouloir continuer ?</p>
+      </div>
+      <div class="modal-footer">
+        {{ Form::open(['route' => ['ally.destroy', $ally->id], 'method' => 'delete', 'class' => 'form-inline', 'style' => 'margin-bottom:0;']) }}
+          <a href="#" class="btn" data-dismiss="modal">Annuler</a>
+          <button type="submit" href="{{ route('ally.destroy', $ally->id) }}" class="btn btn-danger">Supprimer</button>
+        {{ Form::close() }}
+      </div>
+    </div>
     @endforeach
   </tbody>
 </table>
