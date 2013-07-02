@@ -24,7 +24,7 @@
   <div class="control-group">
     <div class="controls">
    {{ Form::submit('Ajouter', array('class' => 'btn btn-primary')) }}
-    <a href="{{ route('city.create') }}" class="btn">Annuler</a>
+    <a href="{{ route('ally.index') }}" class="btn">Annuler</a>
     </div>
   </div>
 

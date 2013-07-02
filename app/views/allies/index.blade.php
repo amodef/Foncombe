@@ -11,7 +11,7 @@
 @section('content')
 @include('_partials.errors')
 
-<h3>Liste des alliances</h3>
+<h3>Liste des alliances @include('_partials.add')</h3>
 <table id="alliesIndex" class="table table-hover">
   <thead>
     <tr>

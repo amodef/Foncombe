@@ -4,7 +4,7 @@
 
 @include('_partials.errors')
 
-<h2>Mise à jour des coordonnées</h2>
+<h2>Mise à jour des coordonnées @include('_partials.add')</h2>
 
 {{ Form::model($city, ['route' => ['city.update', $city->id], 'method' => 'PUT', 'class' => 'form-horizontal']) }}
 
@@ -27,7 +27,6 @@
     {{ Form::label('player_id', 'Appartient à :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::select('player_id', $playerList) }}
-      <a href="{{ route('player.create') }}" class="btn btn-primary btn-small"><i class="icon-plus icon-white"></i></a>
     </div>
   </div> 
 
