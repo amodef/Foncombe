@@ -14,6 +14,6 @@
   </ul>
 </p>
 
-<p><span class="label label-info">Info</span> Pour signaler un bug ou faire part d'une suggestion, veuillez vous rendre à <a href="https://github.com/amodef/Foncombe/issues/new">cette adresse</a>.</p>
+<p><span class="label label-info">Info</span> Pour signaler un bug ou faire part d'une suggestion, veuillez vous rendre à <a href="https://github.com/amodef/foncombe.net/issues/new">cette adresse</a>.</p>
 
 @stop

@@ -54,4 +54,40 @@ class AllyController extends \BaseController {
 		return Redirect::back()->withInput()->withErrors($ally->errors);;
 	}
 
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$ally = Ally::find($id);
+		if (!$ally) return Redirect::route('ally.index');
+
+		return View::make('allies.edit', compact('ally'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$ally = Ally::find($id);
+		if (!$ally) return Redirect::route('ally.index');
+
+		if ($ally->validate())
+		{
+			$ally->fill(Input::all());
+			if ($ally->save())
+			{
+				return Redirect::route('ally.index');
+			}
+		}
+		return Redirect::back()->withErrors($ally->errors);
+	}
+
 }

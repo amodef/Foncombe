@@ -52,4 +52,41 @@ class PlayerController extends \BaseController {
 		return Redirect::back()->withInput()->withErrors($player->errors);
 	}
 
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$player = Player::find($id);
+		$allyList = Player::setAllyList();
+		if (!$player) return Redirect::route('player.index');
+
+		return View::make('players.edit', compact('player'), compact('allyList'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$player = Player::find($id);
+		if (!$player) return Redirect::route('player.index');
+
+		if ($player->validate())
+		{
+			$player->fill(Input::all());
+			if ($player->save())
+			{
+				return Redirect::route('player.index');
+			}
+		}
+		return Redirect::back()->withErrors($player->errors);
+	}
+
 }
