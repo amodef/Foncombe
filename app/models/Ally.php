@@ -21,6 +21,15 @@ class Ally extends BaseModel {
     return parent::validate();
   }
 
+  public function delete()
+  {
+    foreach ($this->players as $player)
+    {
+      $player->delete();
+    }
+    return parent::delete();
+  }
+
   public function setPower()
   {
     $players = $this->players;

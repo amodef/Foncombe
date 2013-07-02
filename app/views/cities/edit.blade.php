@@ -33,7 +33,7 @@
   <div class="control-group">
     <div class="controls">
    {{ Form::submit('Actualiser', array('class' => 'btn btn-primary')) }}
-    <a href="{{ route('home') }}" class="btn">Annuler</a>
+    <a href="{{ route('city.index') }}" class="btn">Annuler</a>
     </div>
   </div>
 

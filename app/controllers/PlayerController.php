@@ -89,4 +89,21 @@ class PlayerController extends \BaseController {
 		return Redirect::back()->withErrors($player->errors);
 	}
 
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$player = Player::find($id);
+
+		if ($player->delete())
+		{
+			return Redirect::route('player.index');
+		}
+		return Redirect::back()->withErrors($player->errors);
+	}
+
 }

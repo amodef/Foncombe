@@ -10,6 +10,7 @@
 
 @section('content')
 @include('_partials.errors')
+
 <h3>Liste des joueurs @include('_partials.add')</h3>
 
 <table id="playersIndex" class="table table-hover">

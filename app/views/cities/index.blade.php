@@ -10,6 +10,7 @@
 
 @section('content')
 @include('_partials.errors')
+
 <h3>Liste des cités connues @include('_partials.add')</h3>
 
 <table id="citiesIndex" class="table table-hover">

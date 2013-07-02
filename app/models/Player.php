@@ -31,6 +31,15 @@ class Player extends BaseModel {
     return parent::validate();
   }
 
+  public function delete()
+  {
+    foreach ($this->cities as $city)
+    {
+      $city->delete();
+    }
+    return parent::delete();
+  }
+
   public static function setAllyList()
   {
     $allyList = [];

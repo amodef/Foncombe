@@ -90,4 +90,21 @@ class AllyController extends \BaseController {
 		return Redirect::back()->withErrors($ally->errors);
 	}
 
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$ally = Ally::find($id);
+		
+		if ($ally->delete())
+		{
+			return Redirect::route('ally.index');
+		}
+		return Redirect::back()->withErrors($ally->errors);
+	}
+
 }

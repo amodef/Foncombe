@@ -1,5 +1,5 @@
 <div class="btn-group">
-  <button class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+  <button class="btn btn-success btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
     <i class="icon-plus icon-white"></i> 
     <span class="caret"></span>
   </button>
