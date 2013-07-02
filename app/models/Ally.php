@@ -10,6 +10,17 @@ class Ally extends BaseModel {
 
   protected $fillable = ['name'];
 
+  public function validate($input = null)
+  {
+    if (Input::get('_method') == 'PUT')
+    {
+      // Ignore values on record with same id, and allow empty password
+      self::$rules['name'] .= ",name,$this->id";
+    }
+
+    return parent::validate();
+  }
+
   public function setPower()
   {
     $players = $this->players;

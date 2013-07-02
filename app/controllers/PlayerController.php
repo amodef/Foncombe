@@ -38,7 +38,7 @@ class PlayerController extends \BaseController {
 				return Redirect::back()->withInput();
 			}
 		}
-		return Redirect::back()->withInput()->withErrors($player->errors);;
+		return Redirect::back()->withInput()->withErrors($player->errors);
 	}
 
 }

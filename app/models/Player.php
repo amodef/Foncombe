@@ -26,9 +26,9 @@ class Player extends BaseModel {
     {
       // Ignore values on record with same id, and allow empty password
       self::$rules['name'] .= ",name,$this->id";
-
-      return parent::validate();
     }
+
+    return parent::validate();
   }
 
   public static function setAllyList()

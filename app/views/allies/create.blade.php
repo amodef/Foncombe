@@ -9,9 +9,15 @@
 {{ Form::open(['route' => 'ally.store', 'class' => 'form-horizontal']) }}
 
   <div class="control-group">
-    {{ Form::label('name', 'Nom de l\'alliance :', ['class' => 'control-label']) }}
+    {{ Form::label('name', 'Nom de l\'alliance* :', ['class' => 'control-label']) }}
     <div class="controls">
       {{ Form::text('name') }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <span class="help-block">*champ obligatoire</span>
     </div>
   </div>
 
