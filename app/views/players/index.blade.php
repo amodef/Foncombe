@@ -24,7 +24,7 @@
   <tbody>
     @foreach($players as $player)
     <tr>
-      <td>{{ $player->name }}</td>
+      <td><a href="{{ route('player.show', $player->id) }}">{{ $player->name }}</a></td>
       <td><a href="{{ route('ally.show', $player->ally->id) }}">{{ $player->ally->name }}</a></td>
       <td>{{ $player->power }}</td>
       <td>

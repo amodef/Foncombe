@@ -22,10 +22,9 @@ class AllyController extends \BaseController {
 	public function show($id)
 	{
 		$ally = Ally::find($id);
-		$players = $ally->players;
 		if ($ally->setPower())
 		{
-			return View::make('allies.show', compact('ally'), compact('players'));			
+			return View::make('allies.show', compact('ally'));			
 		}
 	}
 
@@ -49,7 +48,7 @@ class AllyController extends \BaseController {
 
 			if ($ally->save())
 			{
-				return Redirect::back();
+				return Redirect::route('player.create');
 			}
 		}
 		return Redirect::back()->withInput()->withErrors($ally->errors);;

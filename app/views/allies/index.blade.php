@@ -10,8 +10,8 @@
 
 @section('content')
 @include('_partials.errors')
-<h3>Liste des alliances</h3>
 
+<h3>Liste des alliances</h3>
 <table id="alliesIndex" class="table table-hover">
   <thead>
     <tr>
@@ -22,8 +22,9 @@
   </thead>
   <tbody>
     @foreach($allies as $ally)
+    <?php $ally->setPower() ?>
     <tr>
-      <td><a href="{{ route('ally.show', $ally->id) }}">{{ $ally->name }}</a></td>
+      <td><a href="{{ route('ally.show', $ally->id) }}">{{{ $ally->name }}}</a></td>
       <td>{{ $ally->power }}</td>
       <td>
         {{ Form::open(['route' => ['ally.destroy', $ally->id], 'method' => 'delete', 'class' => 'form-inline', 'style' => 'margin-bottom:0;']) }}

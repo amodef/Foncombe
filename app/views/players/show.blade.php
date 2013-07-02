@@ -30,5 +30,5 @@
   </tbody>
 </table>
 
-<p><a href="{{ URL::previous() }}" class="btn">Retour</a></p>
+<p><a href="{{ route('player.index') }}" class="btn">Retour</a></p>
 @stop
