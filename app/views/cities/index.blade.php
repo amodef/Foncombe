@@ -1,9 +1,15 @@
 @extends('_layouts.master')
 
+@section('sidebar')
+<ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#">Liste des cités</a></li>
+  <li><a href="{{ route('player.index') }}">Liste des joueurs</a></li>
+  <li><a href="{{ route('ally.index') }}">Liste des alliances</a></li>
+</ul>
+@stop
+
 @section('content')
-
 @include('_partials.errors')
-
 <h3>Liste des cités connues</h3>
 
 <table id="citiesIndex" class="table table-hover">

@@ -18,6 +18,6 @@ Route::get('/', ['as' => 'home', function()
 
 Route::resource('city', 'CityController');
 
-Route::resource('ally', 'AllyController', ['only' => ['show', 'create', 'store']]);
+Route::resource('ally', 'AllyController');
 
-Route::resource('player', 'PlayerController', ['only' => ['show', 'create', 'store']]);
+Route::resource('player', 'PlayerController');
